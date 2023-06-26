@@ -1,0 +1,51 @@
+@startuml
+
+class flask.Flask {
+  - app
+  - static_folder: str
+  - template_folder: str
+  + Flask(__name__, template_folder)
+  + run(host, port, debug)
+  + render_template(template_name)
+}
+
+class pandas.DataFrame {
+  - df2
+  + read_csv(file_path)
+  + reset_index()
+}
+
+class sklearn.feature_extraction.text.TfidfVectorizer {
+  - tfidf
+  + fit_transform(data)
+}
+
+class sklearn.metrics.pairwise.cosine_similarity {
+  - cosine_sim
+  + cosine_similarity(x, y)
+}
+
+class difflib {
+  + get_close_matches(a, possibilities)
+}
+
+class main {
+  - df2: DataFrame
+  - tfidf: TfidfVectorizer
+  - tfidf_matrix
+  - cosine_sim
+  - indices: Series
+  - all_titles: list
+  + get_recommendations(title)
+  + index()
+  + main()
+}
+
+flask.Flask --> pandas.DataFrame
+pandas.DataFrame --> sklearn.feature_extraction.text.TfidfVectorizer
+pandas.DataFrame --> sklearn.metrics.pairwise.cosine_similarity
+pandas.DataFrame --> difflib
+main --> pandas.DataFrame
+main --> flask.Flask
+
+@enduml

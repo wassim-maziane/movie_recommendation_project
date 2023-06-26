@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="static/style_negative.css">
+</head>
+<body>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
+
+<div class="container">
+<div class="boo-wrapper">
+<div class="boo">
+<div class="face"></div>
+</div>
+<div class="shadow"></div>
+
+<h1>Whoops!</h1>
+<p>
+  Nous n'avons pas pu trouver la recommandation pour le film. L'avez-vous tapé correctement?
+<br />
+
+                <input type="hidden" value="{{ name }}" id="movie_name" oninput="checkSimilarity()" readonly/>
+                        <hr>
+                        <p>Vouliez-vous dire?</p>
+                        <span id="suggestions">    
+                          {% if suggestions %}
+                          <ul class="list-group">
+                            {% for suggestion in suggestions %}
+                              <li>{{ suggestion }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% else %}
+                          <p>Aucune suggestion disponible.</p>
+                        {% endif %}
+                        </ul></span>
+                      </p>
+                      </div>
+                      </div>
+                              
+
+</body>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>
